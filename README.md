@@ -1,17 +1,18 @@
 # cache-promise
 
-Memoizes functions which returns a promise.  Configurable to cache the result
+Memoizes functions which return a promise.
 
 ```
 import cachePromise from 'cache-promise';
 
-function fn(){
+// example function which you wish to cache the promise
+function myPromiseFunction(){
 	return new Promise((resolve, reject) => {
 		resolve();
 	});
 }
 
-cachePromise(fn);
+let cachedFn = cachePromise(myPromiseFunction);
 ```
 
 By default, subsequent calls to the function will return the same promise until the promise has resolved or rejected.  The behaviour can be modified by providing a config object.
